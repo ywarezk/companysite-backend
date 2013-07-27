@@ -1,6 +1,9 @@
 # Django settings for companysite_backend_app project.
+import os
+os.environ.setdefault('LANG','en_US')
+SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 
-DEBUG = True
+DEBUG = (os.environ.get('COMPANY_ENV_DEBUG', 'TRUE') == 'TRUE')
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -65,7 +68,7 @@ STATIC_ROOT = ''
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
-STATIC_URL = '/static/'
+STATIC_URL = os.environ.get('COMPANY_ENV_STATIC_URL', '/static/')
 
 # Additional locations of static files
 STATICFILES_DIRS = (
@@ -166,7 +169,13 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 INSTALLED_APPS = INSTALLED_APPS + ('companysite_backend_app',)
 INSTALLED_APPS = INSTALLED_APPS + ('south',)
 INSTALLED_APPS = INSTALLED_APPS + ('tastypie',)
+INSTALLED_APPS = INSTALLED_APPS + ('grappelli',)
 import os.path
 TEMPLATE_DIRS = TEMPLATE_DIRS + (os.path.join(os.path.dirname(__file__), 'templates').replace('\\','/'),)
 INSTALLED_APPS = INSTALLED_APPS + ('django.contrib.admin','django.contrib.auth','django.contrib.contenttypes','django.contrib.sessions','django.contrib.messages','django.contrib.staticfiles', 'gunicorn')
 MIDDLEWARE_CLASSES = MIDDLEWARE_CLASSES + ('django.middleware.common.CommonMiddleware','django.contrib.sessions.middleware.SessionMiddleware','django.contrib.auth.middleware.AuthenticationMiddleware','django.contrib.messages.middleware.MessageMiddleware',)
+
+STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+AWS_ACCESS_KEY_ID = os.environ['COMPANY_ENV_AWS_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY = os.environ['COMPANY_ENV_AWS_SECRET_ACCESS_KEY']
+AWS_STORAGE_BUCKET_NAME = os.environ['COMPANY_ENV_AWS_STORAGE_BUCKET_NAME']
