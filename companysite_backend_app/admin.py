@@ -1,6 +1,6 @@
 '''
-contains the db models
-Created on June 21, 2013
+will hold the admin interface models
+Created on Jun 20, 2013
 
 @author: Yariv Katz
 @version: 1.0
@@ -10,51 +10,33 @@ Created on June 21, 2013
 #===============================================================================
 # begin imports
 #===============================================================================
-
-from django.db import models
-import datetime
-from django.db.models import Q
+from django.contrib import admin
+from companysite_backend_app.models import *
 
 #===============================================================================
 # end imports
 #===============================================================================
 
 #===============================================================================
-# begin models abstract classes
+# begin admin models
 #===============================================================================
 
-class NerdeezModel(models.Model):
-    '''
-    this class will be an abstract class for all my models
-    and it will contain common information
-    '''
-    creation_date = models.DateTimeField(default=lambda: datetime.datetime.now().replace(microsecond=0))
-    modified_data = models.DateTimeField(default=lambda: datetime.datetime.now().replace(microsecond=0), auto_now=True)
-    
-    class Meta:
-        abstract = True
-        
-        
+
+class FlatpageAdmin(admin.ModelAdmin):
+    pass
+
+
 #===============================================================================
-# end models abstract classes
+# end admin models
 #===============================================================================
 
 #===============================================================================
-# begin tables - models
+# begin admin site regitration
 #===============================================================================
 
-    
-class Flatpage(NerdeezModel):
-    '''
-    the flatpage table
-    '''
-    title = models.CharField(max_length=250, blank=False, null=False, unique=True)
-    html = models.TextField(blank=True, null=True)
+admin.site.register(Flatpage, FlatpageAdmin)
 
-    def __unicode__(self):
-        return self.title
-        
 
 #===============================================================================
-# end tables - models
+# end admin site registration
 #===============================================================================

@@ -1,0 +1,3 @@
+[submodule "companysite_backend_app/templates/nerdeez-ember"]
+	path = companysite_backend_app/templates/nerdeez-ember
+	url = https://github.com/ywarezk/nerdeez-ember.git
