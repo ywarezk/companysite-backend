@@ -25,6 +25,9 @@ from companysite_backend_app.models import *
 class FlatpageAdmin(admin.ModelAdmin):
     pass
 
+class GalleryAdmin(admin.ModelAdmin):
+    pass
+
 
 #===============================================================================
 # end admin models
@@ -35,6 +38,7 @@ class FlatpageAdmin(admin.ModelAdmin):
 #===============================================================================
 
 admin.site.register(Flatpage, FlatpageAdmin)
+admin.site.register(Gallery, GalleryAdmin)
 
 
 #===============================================================================

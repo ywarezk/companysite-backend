@@ -54,6 +54,17 @@ class Flatpage(NerdeezModel):
     def __unicode__(self):
         return self.title
         
+class Gallery(NerdeezModel):
+    '''
+    product gallery
+    '''
+    title = models.CharField(max_length=255, blank=False, null=False, unique=True)
+    technologies = models.CharField(max_length=1000, blank=True, null=True)
+    description = models.CharField(max_length=1000, blank=True, null=True)
+    html = models.TextField(blank=True, null=True)
+    image = models.ImageField(upload_to='gallery_images', default=None, null=True, blank=True)
+    
+        
 
 #===============================================================================
 # end tables - models

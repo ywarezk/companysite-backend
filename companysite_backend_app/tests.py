@@ -41,6 +41,13 @@ class ApiTest(ResourceTestCase):
         resp = self.api_client.post('/api/v1/utilities/contact/', format='json', data={'mail': 'mail', 'message': 'testmessage'})
         self.assertHttpAccepted(resp)
         
+    def test_gallery(self):
+        '''
+        test the gallery api
+        '''
+        resp = self.api_client.get('/api/v1/gallery/', format='json', data={})
+        self.assertHttpOK(resp)
+        
         
 
 #===============================================================================

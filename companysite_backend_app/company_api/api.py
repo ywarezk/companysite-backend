@@ -76,6 +76,13 @@ class FlatpageResource(NerdeezResource):
         filtering = {
                      'title': ALL,
                      }
+                     
+class GalleryResource(NerdeezResource):
+    '''
+    the rest api for the flatpage
+    '''
+    class Meta(NerdeezResource.Meta):
+        queryset = Gallery.objects.all()
 
 class UtilitiesResource(NerdeezResource):
     '''

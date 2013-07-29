@@ -16,5 +16,18 @@
         "email": "ywarezk@gmail.com", 
         "date_joined": "2013-07-28T10:30:41Z"
     }
+},
+{
+    "pk": 1, 
+    "model": "companysite_backend_app.gallery", 
+    "fields": {
+        "description": "Single page application site for job hunters", 
+        "title": "workerim.co.il", 
+        "image": "gallery_images/Screen_Shot_2013-03-22_at_6.17.00_PM.png", 
+        "creation_date": "2013-07-29T16:20:31Z", 
+        "html": "<h1>Workerim</h1>", 
+        "technologies": "HTML5, Jquery, CSS, JS, Python, Django, Ember, SASS", 
+        "modified_data": "2013-07-29T16:27:33Z"
+    }
 }
 ]
