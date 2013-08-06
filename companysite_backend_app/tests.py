@@ -48,6 +48,13 @@ class ApiTest(ResourceTestCase):
         resp = self.api_client.get('/api/v1/gallery/', format='json', data={})
         self.assertHttpOK(resp)
         
+    def test_workers(self):
+        '''
+        test the gallery api
+        '''
+        resp = self.api_client.get('/api/v1/workers/', format='json', data={})
+        self.assertHttpOK(resp)
+        
         
 
 #===============================================================================

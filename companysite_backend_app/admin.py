@@ -28,6 +28,9 @@ class FlatpageAdmin(admin.ModelAdmin):
 class GalleryAdmin(admin.ModelAdmin):
     pass
 
+class WorkersAdmin(admin.ModelAdmin):
+    pass
+
 
 #===============================================================================
 # end admin models
@@ -39,6 +42,7 @@ class GalleryAdmin(admin.ModelAdmin):
 
 admin.site.register(Flatpage, FlatpageAdmin)
 admin.site.register(Gallery, GalleryAdmin)
+admin.site.register(Workers, WorkersAdmin)
 
 
 #===============================================================================

@@ -79,10 +79,17 @@ class FlatpageResource(NerdeezResource):
                      
 class GalleryResource(NerdeezResource):
     '''
-    the rest api for the flatpage
+    the rest api for the project gallery
     '''
     class Meta(NerdeezResource.Meta):
         queryset = Gallery.objects.all()
+        
+class WorkersResource(NerdeezResource):
+    '''
+    the rest api for the employees of the company
+    '''
+    class Meta(NerdeezResource.Meta):
+        queryset = Workers.objects.all()
 
 class UtilitiesResource(NerdeezResource):
     '''

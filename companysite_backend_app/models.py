@@ -64,6 +64,21 @@ class Gallery(NerdeezModel):
     html = models.TextField(blank=True, null=True)
     image = models.ImageField(upload_to='gallery_images', default=None, null=True, blank=True)
     
+    def __unicode__(self):
+        return self.title
+    
+class Workers(NerdeezModel):
+    '''
+    the employees of nerdeez
+    '''
+    name = models.CharField(max_length=255, blank=False, null=False)
+    position = models.CharField(max_length=1000, blank=False, null=False)
+    image = models.ImageField(upload_to='workers_images', default=None, null=True, blank=True)
+    html = models.TextField(blank=True, null=True)
+    
+    def __unicode__(self):
+        return self.name
+    
         
 
 #===============================================================================
